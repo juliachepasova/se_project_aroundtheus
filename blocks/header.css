@@ -4,3 +4,13 @@
   border: 1px inset #545454;
   border-right-style: none;
 }
+
+@media screen and (max-width: 470px) {
+  .header {
+    margin: 28px 167px 0 0;
+  }
+
+  .header__logo {
+    margin-left: 27px;
+  }
+}

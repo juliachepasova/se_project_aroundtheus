@@ -21,6 +21,7 @@
   border-top-right-radius: 10px;
   height: 361px;
   width: 282px;
+  overflow: hidden;
 }
 
 .card__image {
@@ -59,6 +60,15 @@
   width: 21px;
   height: 18px;
   border: none;
-  /*margin: 35px 0 35px auto;
-      padding: 0;*/
+  transition: opacity 0.2s linear;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 470px) {
+  .cards {
+    margin-top: 0;
+  }
 }
