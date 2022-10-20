@@ -67,8 +67,13 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 589px) {
   .cards {
     margin-top: 0;
+  }
+
+  .cards__list {
+    width: 320px;
+    margin: auto;
   }
 }
