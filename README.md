@@ -17,4 +17,4 @@ Project features
 
 [Responsive design for desktop](images/screenshot-desktop.png)
 
-The link to GitHub Pages
+[The link to GitHub Pages] (https://juliachepasova.github.io/se_project_aroundtheus/)
