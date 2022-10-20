@@ -18,6 +18,8 @@
 
 @media screen and (min-width: 590px) and (max-width: 950px) {
   .page__section {
-    max-width: 581px;
+    max-width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }

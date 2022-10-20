@@ -127,7 +127,6 @@
 
 @media screen and (min-width: 590px) and (max-width: 950px) {
   .profile {
-    max-width: 701px;
     column-gap: 20px;
     justify-content: space-around;
   }
@@ -141,6 +140,7 @@
   .profile__header {
     font-size: 26px;
     line-height: 32px;
+    white-space: nowrap;
   }
 
   .profile__description {
