@@ -14,6 +14,7 @@ Project features
 - Media Queries
 
 [Responsive design for mobile](images/screenshot-mobile.png)
+
 [Responsive design for desktop](images/screenshot-desktop.png)
 
 The link to GitHub Pages
