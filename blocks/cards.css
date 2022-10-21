@@ -9,7 +9,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
+  gap: 20px 17px;
   padding: 0;
   margin: 0;
 }
@@ -19,7 +19,6 @@
   flex-direction: column;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  height: 361px;
   width: 282px;
   overflow: hidden;
 }
@@ -33,12 +32,11 @@
   display: flex;
   background-color: white;
   color: black;
-  padding: 25px 20px;
+  padding: 25px 30px 25px 20px;
   align-items: center;
   justify-content: space-between;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  height: 79px;
 }
 
 .card__header {
@@ -65,11 +63,12 @@
 
 .card__like-button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 589px) {
   .cards {
-    margin-top: 0;
+    margin: 0 0 48px;
   }
 
   .cards__list {
