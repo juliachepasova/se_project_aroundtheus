@@ -95,10 +95,7 @@
   }
 
   .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+    grid-template-columns: 4fr 1fr;
     gap: unset;
     margin-top: 26.25px;
   }
@@ -142,8 +139,11 @@
   }
 
   .profile__info {
-    grid-template-columns: minmax(auto, 250px);
     gap: 12px 14px;
+  }
+
+  .profile__image {
+    margin: 0;
   }
 
   .profile__header {
