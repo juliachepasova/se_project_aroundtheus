@@ -95,7 +95,7 @@
   }
 
   .profile__info {
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 10fr 1fr;
     grid-column-gap: 10px;
     margin-top: 26.25px;
   }
@@ -103,7 +103,6 @@
   .profile__description {
     width: 100%;
     text-align: center;
-
     font-size: 14px;
     line-height: 17px;
   }
@@ -112,7 +111,7 @@
     font-size: 22px;
     line-height: 27px;
     max-width: 196px;
-    justify-self: end;
+    justify-self: center;
   }
 
   .profile__edit-button {
