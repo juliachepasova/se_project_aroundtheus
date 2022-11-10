@@ -1,6 +1,6 @@
-Project 3: Around The U.S.
+Project 4: Around The U.S.
 
-This is the third project of the Software Engineer program at Practicum by Yandex. It was created using HTML and CSS, based on the Figma design brief. This project is made with different interface for popular screen sizes.
+This is the project of the Software Engineer program at Practicum by Yandex. It was created using HTML and CSS, based on the Figma design brief. This project is made with different interface for popular screen sizes.
 
 Project features
 
@@ -12,6 +12,7 @@ Project features
 - CSS transform
 - Grid layout
 - Media Queries
+- JavaScript
 
 [Screenshot of mobile resolution](./images/Screenshot-mobile.png)
 
