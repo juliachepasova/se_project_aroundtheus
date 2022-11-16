@@ -42,14 +42,13 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  padding: 34px 64px 43px 36px;
+  padding: 34px 64px 28px 36px;
   margin: 0;
 }
 .modal__form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 358px;
 }
 
 .modal__fieldset {
@@ -70,7 +69,6 @@
   font-size: 14px;
   line-height: 17px;
   color: rgba(0, 0, 0, 1);
-  width: 100%;
   height: 38px;
   padding: 0;
   margin: 0 36px 29px;
@@ -89,7 +87,7 @@
   border: 2px solid black;
   background-color: black;
   color: white;
-  margin: 48px 36px 36.5px;
+  margin: 48px auto 36.5px;
   padding: 0;
 }
 
@@ -98,7 +96,6 @@
     margin-bottom: 361px;
     margin-left: 256px;
     padding: 0;
-
     width: 26px;
     height: 26px;
   }
@@ -119,6 +116,7 @@
 
   .modal__input {
     margin: 0 22px 13px;
+    width: 100%;
   }
   .modal__button {
     height: 46px;
