@@ -25,20 +25,53 @@ const initialCards = [
   },
 ];
 
-const editButton = document.querySelector(".profile__edit-button");
-const closeButton = document.querySelector(".modal__close-button");
-const modalBox = document.querySelector(".modal");
+const cardTemplate = document.querySelector("#card");
 
-function openModal() {
-  console.log("You have opened the modal form");
-  modalBox.classList.add("modal_opened");
-}
+const cardsWrap = document.querySelector(".cards__list");
+const profileEditModal = document.querySelector(".modal");
+const profileForm = document.querySelector(".modal__form");
 
-editButton.addEventListener("click", openModal);
+const profileEditButton = document.querySelector(".profile__edit-button");
+const profileEditCloseButton = document.querySelector(".modal__close-button");
+const profileTitle = document.querySelector(".profile__header");
+const profileDescription = document.querySelector(".profile__description");
+
+const titleInputValue = document.querySelector("#name");
+const descriptionInputValue = document.querySelector("#description");
 
 function closeModal() {
-  console.log("You have closed the modal form");
-  modalBox.classList.remove("modal_opened");
+  profileEditModal.classList.remove("modal_opened");
 }
 
-closeButton.addEventListener("click", closeModal);
+function openModal() {
+  profileEditModal.classList.add("modal_opened");
+  titleInputValue.value = profileTitle.textContent;
+  descriptionInputValue.value = profileDescription.textContent;
+}
+
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = titleInputValue.value;
+  profileDescription.textContent = descriptionInputValue.value;
+  closeModal();
+}
+
+function getCardElement(data) {
+  const cardElement = document.querySelector(".card").cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__description");
+
+  cardImage.src = data.link;
+  cardImage.alt = data.name;
+  cardTitle.textContent = data.name;
+
+  return cardElement;
+}
+
+profileForm.addEventListener("submit", handleProfileFormSubmit);
+profileEditCloseButton.addEventListener("click", closeModal);
+profileEditButton.addEventListener("click", openModal);
+
+for (let i = 0; i < initialCards.length; i++) {
+  cardsWrap.prepend(getCardElement(initialCards[i]));
+}

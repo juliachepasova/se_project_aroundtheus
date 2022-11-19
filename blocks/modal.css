@@ -29,6 +29,11 @@
   border: none;
 }
 
+.modal__close-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .modal__container {
   height: 330px;
   width: 430px;
@@ -79,7 +84,7 @@
   margin-bottom: 0;
 }
 
-.modal__button {
+.modal__save-button {
   height: 50.15px;
   width: 358px;
   left: 107px;
@@ -89,6 +94,11 @@
   color: white;
   margin: 48px auto 36.5px;
   padding: 0;
+}
+
+.modal__save-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 589px) {
@@ -118,7 +128,7 @@
     margin: 0 22px 13px;
     width: 100%;
   }
-  .modal__button {
+  .modal__save-button {
     height: 46px;
     width: 238px;
     margin: 45px 22px 25px;

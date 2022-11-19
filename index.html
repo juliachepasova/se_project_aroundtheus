@@ -39,38 +39,7 @@
               aria-label="Edit Profile"
             ></button>
 
-            <div class="modal modal_opened">
-              <button class="modal__close-button" type="button"></button>
-              <div class="modal__container">
-                <h1 class="modal__title">Edit profile</h1>
-                <form class="modal__form">
-                  <fieldset class="modal__fieldset">
-                    <label for="name" class="modal__label"></label>
-                    <input
-                      type="text"
-                      class="modal__input"
-                      id="name"
-                      placeholder="Name"
-                      required
-                    />
-
-                    <label for="description" class="modal__label"></label>
-                    <input
-                      type="text"
-                      class="modal__input"
-                      id="description"
-                      placeholder="Description"
-                      required
-                    />
-                  </fieldset>
-                  <fieldset class="modal__fieldset">
-                    <button type="submit" class="modal__button">Save</button>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-
-            <p class="profile__description">Explore</p>
+            <p class="profile__description">Explorer</p>
           </div>
           <button
             class="profile__add-button"
@@ -78,106 +47,58 @@
             aria-label="Add New Location"
           ></button>
         </section>
-        <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="card">
-              <img
-                src="./images/bald-mountains.jpg"
-                alt="Bald Mountains Sunset"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__header">Bald Mountains</h2>
-                <button
-                  class="card__like-button"
-                  type="button"
-                  aria-label="Like the Post"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago-di-braies.jpg"
-                alt="Lago Di Braies Boats"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__header">Lago di Braies</h2>
-                <button
-                  class="card__like-button"
-                  type="button"
-                  aria-label="Like the Post"
-                ></button>
-              </div>
-            </li>
 
-            <li class="card">
-              <img
-                src="./images/lake-louise.jpg"
-                alt="Lake Louise"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__header">Lake Louise</h2>
-                <button
-                  class="card__like-button"
-                  type="button"
-                  aria-label="Like the Post"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.jpg"
-                alt="Latemar Night Sky"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__header">Latemar</h2>
-                <button
-                  class="card__like-button"
-                  type="button"
-                  aria-label="Like the Post"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise-national-park.jpg"
-                alt="Vanoise National Park"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__header">Vanoise National Park</h2>
-                <button
-                  class="card__like-button"
-                  type="button"
-                  aria-label="Like the Post"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/yosemite-valley.jpg"
-                alt="Yosemite Valley River"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__header">Yosemite Valley</h2>
-                <button
-                  class="card__like-button"
-                  type="button"
-                  aria-label="Like the Post"
-                ></button>
-              </div>
-            </li>
-          </ul>
+        <section class="cards page__section">
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer page__section">
         <p class="footer__copyright">© 2022 Around The U.S.</p>
       </footer>
+      <div class="modal modal_opened">
+        <button class="modal__close-button" type="button"></button>
+        <div class="modal__container">
+          <h1 class="modal__title">Edit profile</h1>
+          <form class="modal__form">
+            <fieldset class="modal__fieldset">
+              <label for="name" class="modal__label"></label>
+              <input
+                type="text"
+                class="modal__input"
+                id="name"
+                placeholder="Name"
+                required
+              />
+
+              <label for="description" class="modal__label"></label>
+              <input
+                type="text"
+                class="modal__input"
+                id="description"
+                placeholder="Description"
+                required
+              />
+            </fieldset>
+            <fieldset class="modal__fieldset">
+              <button type="submit" class="modal__save-button">Save</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
-    <script src="scripts/index.js"></script>
+    <script defer src="scripts/index.js"></script>
+    <template id="card">
+      <li class="card">
+        <img class="card__image" alt="" src="" />
+        <div class="card__description">
+          <h2 class="card__header"></h2>
+          <button
+            class="card__like-button"
+            type="button"
+            aria-label="Like the Post"
+          ></button>
+        </div>
+      </li>
+    </template>
   </body>
 </html>
