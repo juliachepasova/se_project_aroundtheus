@@ -57,7 +57,7 @@ function handleProfileFormSubmit(evt) {
 }
 
 function getCardElement(data) {
-  const cardElement = document.querySelector(".card").cloneNode(true);
+  const cardElement = document.querySelector("#card").content.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__description");
 
