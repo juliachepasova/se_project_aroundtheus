@@ -28,16 +28,18 @@ const initialCards = [
 const cardTemplate = document.querySelector("#card");
 
 const cardsWrap = document.querySelector(".cards__list");
-const profileEditModal = document.querySelector(".modal");
-const profileForm = document.querySelector(".modal__form");
+const profileEditModal = document.querySelector("#profileEditModal");
+const profileForm = profileEditModal.querySelector(".modal__form");
 
 const profileEditButton = document.querySelector(".profile__edit-button");
-const profileEditCloseButton = document.querySelector(".modal__close-button");
+const profileEditCloseButton = profileEditModal.querySelector(
+  ".modal__close-button"
+);
 const profileTitle = document.querySelector(".profile__header");
 const profileDescription = document.querySelector(".profile__description");
 
-const titleInputValue = document.querySelector("#name");
-const descriptionInputValue = document.querySelector("#description");
+const titleInput = document.querySelector("#name");
+const descriptionInput = document.querySelector("#description");
 
 function closeModal() {
   profileEditModal.classList.remove("modal_opened");
@@ -45,14 +47,14 @@ function closeModal() {
 
 function openModal() {
   profileEditModal.classList.add("modal_opened");
-  titleInputValue.value = profileTitle.textContent;
-  descriptionInputValue.value = profileDescription.textContent;
+  titleInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
 }
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = titleInputValue.value;
-  profileDescription.textContent = descriptionInputValue.value;
+  profileTitle.textContent = titleInput.value;
+  profileDescription.textContent = descriptionInput.value;
   closeModal();
 }
 
@@ -72,6 +74,8 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 profileEditCloseButton.addEventListener("click", closeModal);
 profileEditButton.addEventListener("click", openModal);
 
+//smooth transitions were added however I think implementing
+//forEach method we study in sprint 5 (I have trubles to understand that method on my own)
 for (let i = 0; i < initialCards.length; i++) {
   cardsWrap.prepend(getCardElement(initialCards[i]));
 }
