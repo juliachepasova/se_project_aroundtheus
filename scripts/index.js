@@ -25,12 +25,9 @@ const initialCards = [
   },
 ];
 
-const cardTemplate = document.querySelector("#card");
-
 const cardsWrap = document.querySelector(".cards__list");
 const profileEditModal = document.querySelector("#profileEditModal");
 const profileForm = profileEditModal.querySelector(".modal__form");
-
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileEditCloseButton = profileEditModal.querySelector(
   ".modal__close-button"
@@ -41,12 +38,22 @@ const profileDescription = document.querySelector(".profile__description");
 const titleInput = document.querySelector("#name");
 const descriptionInput = document.querySelector("#description");
 
-function closeModal() {
-  profileEditModal.classList.remove("modal_opened");
+const newCardModal = document.querySelector("#newCardModal");
+const newCardButton = document.querySelector(".profile__add-button");
+const newCardCloseButton = newCardModal.querySelector(".modal__close-button");
+const cardAddForm = newCardModal.querySelector("#add-card-form");
+
+function closeModal(modal) {
+  console.log(modal);
+  modal.classList.remove("modal_opened");
 }
 
-function openModal() {
-  profileEditModal.classList.add("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  fillProfileForm();
+}
+
+function fillProfileForm() {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
 }
@@ -55,27 +62,42 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = titleInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closeModal();
+  closeModal(profileEditModal);
 }
+const cardTemplate = document.querySelector("#card").content;
 
-function getCardElement(data) {
-  const cardElement = document.querySelector("#card").content.cloneNode(true);
+function getCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__description");
-
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
-  cardTitle.textContent = data.name;
+  const cardTitle = cardElement.querySelector(".card__header");
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+  cardTitle.textContent = cardData.name;
 
   return cardElement;
+  cardsWrap.appendChild(cardElement);
 }
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
-profileEditCloseButton.addEventListener("click", closeModal);
-profileEditButton.addEventListener("click", openModal);
+profileEditCloseButton.addEventListener("click", () =>
+  closeModal(profileEditModal)
+);
+profileEditButton.addEventListener("click", () => openModal(profileEditModal));
 
-//smooth transitions were added however I think implementing
-//forEach method we study in sprint 5 (I have trubles to understand that method on my own)
-for (let i = 0; i < initialCards.length; i++) {
-  cardsWrap.prepend(getCardElement(initialCards[i]));
-}
+newCardButton.addEventListener("click", () => openModal(newCardModal));
+newCardCloseButton.addEventListener("click", () => closeModal(newCardModal));
+
+cardAddForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = e.target.title.value;
+  const link = e.target.link.value;
+  getCardElement({
+    name: title,
+    link: link,
+  });
+  closeModal(newCardModal);
+});
+
+initialCards.forEach(function (cardData) {
+  cardsWrap.prepend(getCardElement(cardData));
+});
