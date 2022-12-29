@@ -43,8 +43,16 @@ const newCardButton = document.querySelector(".profile__add-button");
 const newCardCloseButton = newCardModal.querySelector(".modal__close-button");
 const cardAddForm = newCardModal.querySelector("#add-card-form");
 
+const cardTemplate = document.querySelector("#card").content;
+
+function handleLikeButton(evt) {
+  evt.target.classList.toggle(".card__like-button_is-active");
+}
+function handleDeleteCard(evt) {
+  evt.target.closest(".card").remove();
+}
+
 function closeModal(modal) {
-  console.log(modal);
   modal.classList.remove("modal_opened");
 }
 
@@ -64,25 +72,27 @@ function handleProfileFormSubmit(evt) {
   profileDescription.textContent = descriptionInput.value;
   closeModal(profileEditModal);
 }
-const cardTemplate = document.querySelector("#card").content;
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__header");
+  const likeButton = document.querySelector(".card__like-button");
+  const deleteButton = document.querySelector(".card__delete-button");
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
+  likeButton.addEventListener("click", handleLikeButton);
+  deleteButton.addEventListener("click", handleDeleteCard);
 
   return cardElement;
-  cardsWrap.appendChild(cardElement);
 }
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
+profileEditButton.addEventListener("click", () => openModal(profileEditModal));
 profileEditCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
-profileEditButton.addEventListener("click", () => openModal(profileEditModal));
 
 newCardButton.addEventListener("click", () => openModal(newCardModal));
 newCardCloseButton.addEventListener("click", () => closeModal(newCardModal));
@@ -91,10 +101,11 @@ cardAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const title = e.target.title.value;
   const link = e.target.link.value;
-  getCardElement({
+  const cardElement = getCardElement({
     name: title,
     link: link,
   });
+  cardsWrap.prepend(cardElement);
   closeModal(newCardModal);
 });
 
