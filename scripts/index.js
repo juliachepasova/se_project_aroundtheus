@@ -46,8 +46,9 @@ const cardAddForm = newCardModal.querySelector("#add-card-form");
 const cardTemplate = document.querySelector("#card").content;
 
 function handleLikeButton(evt) {
-  evt.target.classList.toggle(".card__like-button_is-active");
+  evt.target.classList.toggle("card__like-button_is-active");
 }
+
 function handleDeleteCard(evt) {
   evt.target.closest(".card").remove();
 }
@@ -77,8 +78,8 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__header");
-  const likeButton = document.querySelector(".card__like-button");
-  const deleteButton = document.querySelector(".card__delete-button");
+  const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
