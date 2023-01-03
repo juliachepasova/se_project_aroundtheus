@@ -108,6 +108,40 @@
   cursor: pointer;
 }
 
+.modal__wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__close-button_preview {
+  top: -50px;
+  right: -50px;
+  margin: 0;
+}
+
+.modal__preview {
+  position: relative;
+  max-height: 540px;
+  max-width: 80%;
+}
+.modal__preview-image {
+  max-width: 100%;
+  height: calc(100vh - 180px);
+}
+
+.modal__caption {
+  background-color: transparent;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+
 @media screen and (max-width: 589px) {
   .modal__close-button {
     margin-bottom: 361px;
