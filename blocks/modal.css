@@ -118,24 +118,26 @@
 }
 
 .modal__close-button_preview {
-  top: -50px;
-  right: -50px;
+  top: -40px;
+  right: -40px;
   margin: 0;
+  padding: 0;
 }
 
 .modal__preview {
   position: relative;
-  max-height: 540px;
+
   max-width: 80%;
 }
 .modal__preview-image {
   max-width: 100%;
-  height: calc(100vh - 180px);
+
+  max-height: 540px;
 }
 
 .modal__caption {
   background-color: transparent;
-
+  margin-top: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

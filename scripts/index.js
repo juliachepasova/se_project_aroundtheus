@@ -58,12 +58,6 @@ function closeModal(modal) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  fillProfileForm();
-}
-
-function fillProfileForm() {
-  titleInput.value = profileTitle.textContent;
-  descriptionInput.value = profileDescription.textContent;
 }
 
 function handleProfileFormSubmit(evt) {
@@ -107,9 +101,18 @@ function getCardElement(cardData) {
 
   return cardElement;
 }
+function clearInput() {
+  document.getElementById("add-card-form").reset();
+}
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
-profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+
+profileEditButton.addEventListener("click", () => {
+  titleInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
+  openModal(profileEditModal);
+});
+
 profileEditCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
@@ -127,6 +130,7 @@ cardAddForm.addEventListener("submit", (e) => {
   });
   cardsWrap.prepend(cardElement);
   closeModal(newCardModal);
+  clearInput();
 });
 
 initialCards.forEach(function (cardData) {
